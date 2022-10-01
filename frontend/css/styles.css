@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #F38181;
+    background-color: #f3f3f3;
 }
 
 h2 {
@@ -15,6 +15,7 @@ h2 {
 }
 
 .container {
+    background-color: #F38181;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,4 +90,48 @@ h2 {
     text-decoration:none;
     color: #F38181;
     font-weight:bold;
+}
+
+.nav-bar {
+    height: 10vh;
+    width: 89vw;
+    color: #f3f3f3;
+    background-color: #F38181;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vw;
+    align-items: center;
+    position: fixed;
+}
+
+.nav-bar > h4 {
+    font-family: 'Indie Flower', cursive;
+    color: #95E1D3;
+    font-size: 22px;
+}
+
+.nav-bar > button {
+    background-color:#f3f3f3;
+    border-radius:10px;
+    color:#F38181;
+    font-size:18px;
+    font-weight:bold;
+    padding:12px 12px;
+    width: 100px;
+    border: none;
+    text-decoration:none;
+    align-self: center;
+}
+
+.nav-bar > div {
+    display: flex;
+    justify-content: space-between;
+    width: 20vw;
+}
+
+.nav-bar > div > a {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
 }
