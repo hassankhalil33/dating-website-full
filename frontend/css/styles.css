@@ -225,3 +225,65 @@ h2 {
 .feed > div > div:first-child > img {
     width: 170px;
 }
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 15vw;
+}
+
+.profile > div {
+    background-color: #ececec;
+    width: 40%;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 3% 25px 3%;
+    margin: 0 15px 25px 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px #d1d1d1;
+}
+
+.profile > div > div:last-child > h4 {
+    font-family: 'Indie Flower', cursive;
+    color: #212121;
+    font-size: 24px;
+}
+
+.profile > div > div:last-child > h3 {
+    margin: 15px 0;
+    font-family: 'Indie Flower', cursive;
+    color: #95E1D3;
+    font-size: 18px;
+}
+
+.profile > div > div:last-child > p {
+    color: #212121;
+    font-size: 16px;
+}
+
+.profile > div > div:last-child > button {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #F38181;
+    border-radius: 10px;
+    color: #f3f3f3;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 6px;
+    width: 120px;
+    border: none;
+    text-decoration: none;
+    align-self: center;
+}
+
+.profile > div > div:last-child > button:hover {
+    background-color: #95E1D3;
+}
+
+.profile > div > div:first-child > img {
+    width: 300px;
+}
