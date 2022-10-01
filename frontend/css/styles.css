@@ -14,6 +14,10 @@ h2 {
     margin: 0 auto;
 }
 
+.icon {
+    width: 22px;
+}
+
 .container {
     background-color: #F38181;
     display: flex;
@@ -182,7 +186,7 @@ h2 {
 
 .feed > div {
     background-color: #ececec;
-    width: 320px;
+    width: 28%;
     height: 170px;
     display: flex;
     justify-content: space-between;
@@ -203,6 +207,13 @@ h2 {
     font-family: 'Indie Flower', cursive;
     color: #95E1D3;
     font-size: 16px;
+}
+
+.feed > div > div:last-child > button {
+    margin-top: 15px;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
 }
 
 .feed > div > div:first-child > img {
