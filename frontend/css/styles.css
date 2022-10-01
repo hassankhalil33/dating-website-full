@@ -4,5 +4,24 @@
 }
 
 body {
-    background-color: rgb(119, 150, 150);
+    background-color: #F38181;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
