@@ -32,3 +32,28 @@ h2 {
     justify-content: center;
     flex-direction: column;
 }
+
+.login > button {
+    background-color:#f38181;
+    border-radius:10px;
+    color:#ffffff;
+    font-size:19px;
+    font-weight:bold;
+    padding:12px 25px;
+    margin-top: 15px;
+    width: 50%;
+    border: none;
+    text-decoration:none;
+    align-self: center;
+}
+
+.login > button:hover {
+    background-color:#95e1d3;
+}
+
+.login > a {
+    align-self: flex-end;
+    font-size:13px;
+    margin-top: 15px;
+    text-decoration:none;
+}
