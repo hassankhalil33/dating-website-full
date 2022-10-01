@@ -63,6 +63,20 @@ h2 {
     font-size: 15px;
     border-radius: 5px;
     border: 1px solid rgb(216, 216, 216);
+    color: #606060;
+}
+
+.login > select {
+    height: 30px;
+    margin: 3px auto;
+    justify-content: center;
+    width: 88%;
+    gap: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 216, 216);
+    color: #606060;
 }
 
 .login > a {
