@@ -31,6 +31,8 @@ h2 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    box-shadow: 10px 10px #6f3b3b;
+    border: 1px solid #a9a9a9;
 }
 
 .login > button {
@@ -51,9 +53,23 @@ h2 {
     background-color:#95e1d3;
 }
 
+.login > input {
+    height: 30px;
+    margin: 15px auto;
+    justify-content: center;
+    width: 88%;
+    gap: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 216, 216);
+}
+
 .login > a {
     align-self: flex-end;
     font-size:13px;
     margin-top: 15px;
     text-decoration:none;
+    color: #F38181;
+    font-weight:bold;
 }
