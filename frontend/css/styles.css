@@ -127,6 +127,12 @@ h2 {
     align-self: center;
 }
 
+.nav-bar > button:hover {
+    background-color: #95E1D3;
+    color: #f3f3f3;
+    cursor: pointer;
+}
+
 .nav-bar > div {
     display: flex;
     justify-content: space-between;
