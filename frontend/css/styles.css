@@ -93,13 +93,13 @@ h2 {
 }
 
 .nav-bar {
-    height: 10vh;
-    width: 89vw;
+    height: 8vh;
+    width: 69vw;
     color: #f3f3f3;
     background-color: #F38181;
     display: flex;
     justify-content: space-between;
-    padding: 0 5vw;
+    padding: 0 15vw;
     align-items: center;
     position: fixed;
 }
@@ -134,4 +134,42 @@ h2 {
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
+    border: 2px solid #f3f3f3;
+    padding: 4px 6px;
+    border-radius: 5px;
 }
+
+.hero {
+    background-color: #F38181;
+    display: flex;
+    justify-content: space-around;
+    padding: 8vh 15vw;
+    height: 72vh;
+    color: #f3f3f3;
+}
+
+.hero > div {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero > div > h1 {
+    font-family: 'Indie Flower', cursive;
+    color: #95E1D3;
+    font-size: 80px;
+}
+
+.hero > div > p {
+    margin-top: 5%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero > div:first-child > img {
+    width: 50%;
+}
+
+
