@@ -292,7 +292,7 @@ h2 {
     background: rgb(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     position: absolute;
     top: 0;
     justify-content: center;
@@ -307,4 +307,19 @@ h2 {
     padding: 20px;
     border-radius: 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content > button {
+    margin-left: 350px;
+    margin-bottom: 490px;
+    background-color: #95E1D3;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    border-radius: 30%;
+    padding: 5px;
 }
