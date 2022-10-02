@@ -222,8 +222,16 @@ h2 {
     cursor: pointer;
 }
 
+.feed > div > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .feed > div > div:first-child > img {
-    width: 170px;
+    width: 160px;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .profile {
@@ -286,10 +294,11 @@ h2 {
 
 .profile > div > div:first-child > img {
     width: 300px;
+    border-radius: 15px;
 }
 
 .popup {
-    background: rgb(0, 0, 0, 0.6);
+    background: rgb(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
     display: none;
