@@ -215,6 +215,12 @@ h2 {
     font-size: 16px;
 }
 
+.feed > div > div:last-child > h3 {
+    margin-top: 2px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .feed > div > div:last-child > button {
     margin-top: 15px;
     margin-right: 15px;
@@ -244,7 +250,7 @@ h2 {
 .profile > div {
     background-color: #ececec;
     width: 40%;
-    height: 500px;
+    height: 550px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -259,6 +265,7 @@ h2 {
     font-family: 'Indie Flower', cursive;
     color: #212121;
     font-size: 24px;
+    margin-bottom: 15px;
 }
 
 .profile > div > div:last-child > h3 {
@@ -310,7 +317,7 @@ h2 {
 }
 
 .popup-content {
-    height: 500px;
+    height: 600px;
     width: 350px;
     background-color: #f3f3f3;
     padding: 20px;
@@ -318,17 +325,79 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .popup-content > button {
-    margin-left: 350px;
-    margin-bottom: 490px;
     background-color: #95E1D3;
     cursor: pointer;
     border: none;
     font-size: 18px;
     border-radius: 30%;
     padding: 5px;
+    align-self: flex-end;
+}
+
+.popup-content > img {
+    width: 200px;
+}
+
+.popup-content > input {
+    height: 30px;
+    margin: 3px auto;
+    justify-content: center;
+    width: 88%;
+    gap: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+.popup-content > input::placeholder {
+    color: #606060;
+}
+
+.popup-content > textarea {
+    height: 90px;
+    margin: 3px auto;
+    justify-content: center;
+    width: 88%;
+    gap: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+.popup-content > select {
+    height: 30px;
+    margin: 3px auto;
+    justify-content: center;
+    width: 88%;
+    gap: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 216, 216);
+    color: #606060;
+}
+    
+.popup-content > button:last-child {
+    background-color:#f38181;
+    border-radius:10px;
+    color:#ffffff;
+    font-size:19px;
+    font-weight:bold;
+    padding:12px 25px;
+    margin-top: 15px;
+    width: 50%;
+    border: none;
+    text-decoration:none;
+    align-self: center;
+}
+
+.popup-content > button:last-child:hover {
+    background-color: #95E1D3;
 }
