@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string("username", 45);
             $table->string("password");
             $table->string("name", 45);
-            $table->string("photo", 95);
+            $table->string("photo", 95)
+                ->nullable();
             $table->timestamps();
         });
     }

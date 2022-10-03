@@ -9,17 +9,19 @@ use App\Models\Extended_User;
 class ApiController extends Controller {
     
     public function register(Request $request) {
-        User::insert([
-            "username" => $request->input("username"),
-            "password" => $request->input("password"),
-            "name" => $request->input("name"),
-            "user_type" => "2"
-        ]);
+        $newUser = new User;
+        $extendedUser = new Extended_User;
 
-        Extended_User::insert([
-            "location" => $request->input("location"),
-            "gender" => $request->input("gender"),
-            "interested_in" => $request->input("interested_in")
-        ]);
+        $newUser->username = $request->input("username");
+        $newUser->password = $request->input("password");
+        $newUser->name = $request->input("name");
+        $newUser->user_type = "2";
+        $newUser->save();
+
+        $extendedUser->location = $request->input("location");
+        $extendedUser->gender = $request->input("gender");
+        $extendedUser->biography = "";
+        $extendedUser->interested_in = $request->input("interested_in");
+        $newUser->extended_user()->save($extendedUser);
     }
 }

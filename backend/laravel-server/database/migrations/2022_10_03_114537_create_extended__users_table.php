@@ -19,7 +19,8 @@ return new class extends Migration
                 ->references("id")
                 ->on("users")
                 ->nullable();
-            $table->integer("age");
+            $table->integer("age")
+                ->nullable();
             $table->string("gender", 45);
             $table->string("interested_in", 45);
             $table->string("location", 95);

@@ -9,6 +9,6 @@ class User extends Model {
     use HasFactory;
 
     public function extended_user() {
-        return $this->hasOne('App\Models\Extended_User', 'extended_user');
+        return $this->hasOne('App\Models\Extended_User', 'user_id', 'id');
     }
 }

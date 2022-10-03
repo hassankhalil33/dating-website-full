@@ -18,6 +18,14 @@ return new class extends Migration
             $table->string("type", 45);
             $table->timestamps();
         });
+
+        DB::table('user__types')->insert([
+                'type' => 'admin'
+        ]);
+
+        DB::table('user__types')->insert([
+            'type' => 'user'
+        ]);
     }
 
     /**
