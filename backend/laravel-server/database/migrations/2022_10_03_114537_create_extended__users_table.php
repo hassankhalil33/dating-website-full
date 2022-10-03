@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('extended__users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")
+                ->references("id")
+                ->on("users")
+                ->nullable();
             $table->integer("age");
             $table->string("gender", 45);
             $table->string("interested_in", 45);

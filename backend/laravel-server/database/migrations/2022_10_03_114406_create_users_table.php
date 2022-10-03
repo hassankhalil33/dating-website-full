@@ -18,10 +18,6 @@ return new class extends Migration
             $table->foreignId("user_type")
                 ->references("id")
                 ->on("user__types");
-            $table->foreignId("extended_user")
-                ->references("id")
-                ->on("extended__users")
-                ->onDelete("cascade");
             $table->string("username", 45);
             $table->string("password");
             $table->string("name", 45);
