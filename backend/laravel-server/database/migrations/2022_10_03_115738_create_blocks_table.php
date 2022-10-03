@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blocks', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId("blocker_id")
+                ->references("id")
+                ->on("users");
+            $table->foreignId("blocking_id")
+                ->references("id")
+                ->on("users");
             $table->timestamps();
         });
     }

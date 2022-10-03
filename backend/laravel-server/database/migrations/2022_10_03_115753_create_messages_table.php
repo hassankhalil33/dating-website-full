@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId("sender_id")
+                ->references("id")
+                ->on("users");
+            $table->foreignId("receiver_id")
+                ->references("id")
+                ->on("users");
+            $table->string("message");
             $table->timestamps();
         });
     }
