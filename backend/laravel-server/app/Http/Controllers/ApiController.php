@@ -52,6 +52,12 @@ class ApiController extends Controller {
         ]);
     }
 
+    private function imageHandler($path) {
+        $filePath = public_path("images\\" . $path);
+        $photo = base64_encode(file_get_contents($filePath));
+        return "data:image/png;base64," . $photo;
+    }
+
     public function profile() {
         $profile = Extended_User::
             where("user_id", Auth::id())
@@ -59,11 +65,10 @@ class ApiController extends Controller {
             ->get();
 
         if($profile[0]["user"]["photo"]) {
-            $filePath = public_path("images\\" . $profile[0]["user"]["photo"]);
-            $photo = base64_encode(file_get_contents($filePath));
+            $profile[0]["user"]["photo"] = self::imageHandler($profile[0]["user"]["photo"]);
         }
 
-        $profile[0]["user"]["photo"] = "data:image/png;base64," . $photo;
+        
 
         return response()->json([
             "status" => "success",
