@@ -34,11 +34,12 @@
         </section>
 
         <section class="popup">
-            <div class="popup-content">
+            <form class="popup-content" method="POST" enctype="multipart/form-data">
                 <button id="close-edit">X</button>
                 <img src="assets/images/default_pic.png" alt="profile_pic">
-                <input id="new-name" type="text" placeholder="Name">
-                <input id="new-age" type="text" placeholder="Age">
+                <input id="new-photo" name="photo" type="file">
+                <input id="new-name" name="name" type="text" placeholder="Name">
+                <input id="new-age" name="age" type="text" placeholder="Age">
                 <textarea id="new-bio" name="bio" cols="30" rows="5" placeholder="Bio"></textarea>
                 <select id="new-gender" name="gender">
                     <option>Gender</option>
@@ -51,7 +52,7 @@
                     <option value="female">Females</option>
                 </select>
                 <button id="update-profile" type="submit">Update</button>
-            </div>
+            </form>
         </section>
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

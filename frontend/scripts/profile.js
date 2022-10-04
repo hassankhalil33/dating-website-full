@@ -9,6 +9,9 @@ const newAge = document.getElementById("new-age");
 const newGender = document.getElementById("new-gender");
 const newInterest = document.getElementById("new-interest");
 const newBio = document.getElementById("new-bio");
+const newPhoto = document.getElementById("new-photo");
+const form = document.querySelector(".popup-content");
+
 const baseURL = "http://127.0.0.1:8000/api";
 const data = {};
 
@@ -27,6 +30,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
             }
 
         ) .then(function (response) {
+            console.log(response);
             return response});
     } catch(error) {
         console.log(error)
@@ -70,34 +74,42 @@ viewProfile(profileURL, data, token);
 setTimeout(() => {  
     const editProfileButton = document.getElementById("edit-profile");
 
-    editProfileButton.addEventListener("click", () => {
+    editProfileButton.addEventListener("click", (e) => {
+        e.preventDefault();
         editProfilePopup.style.display = "flex";
     });
-}, 1000);
+}, 2000);
 
-closeEditProfile.addEventListener("click", () => {
+closeEditProfile.addEventListener("click", (e) => {
+    e.preventDefault();
     editProfilePopup.style.display = "none";
 });
 
-updateButton.addEventListener("click", () => {
-    updateData = {
-        name: newName.value,
-        age: newAge.value,
-        bio: newBio.value,
-        gender: newGender.value,
-        interested_in: newInterest.value
-    }
+updateButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
 
-    postAPI(updateProfileURL, updateData, token);
+    // updateData = {
+    //     name: newName.value,
+    //     age: newAge.value,
+    //     bio: newBio.value,
+    //     gender: newGender.value,
+    //     interested_in: newInterest.value,
+    //     photo: newPhoto.value
+    // }
+
+    console.log([...formData]);
+    postAPI(updateProfileURL, formData, token);
 
     editProfilePopup.style.display = "none";
     viewProfile(profileURL, data, token);
-    
+
     setTimeout(() => {  
         const editProfileButton = document.getElementById("edit-profile");
     
-        editProfileButton.addEventListener("click", () => {
+        editProfileButton.addEventListener("click", (e) => {
+            e.preventDefault();
             editProfilePopup.style.display = "flex";
         });
-    }, 1000);
+    }, 2000);
 });

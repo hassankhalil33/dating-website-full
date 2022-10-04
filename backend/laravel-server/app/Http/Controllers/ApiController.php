@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Extended_User;
 use Illuminate\Support\Facades\Auth;
+use File;
 
 class ApiController extends Controller {
     
@@ -57,13 +58,29 @@ class ApiController extends Controller {
             ->with("User")
             ->get();
 
+        $fileName = "images/" . $profile[0]["user"]["photo"];
+
+        $photo = File::get(public_path($fileName));
+        // $profile[0]["user"]["photo"] = $photo;
+
         return response()->json([
             "status" => "success",
-            "message" => $profile
+            "message" => $photo
         ]);
     }
 
     public function profile_edit(Request $request) {
+        if($request->photo) {
+            $request->validate([
+                "photo" => "mimes:jpg,jpeg,png"
+            ]);
+
+            $photoName = time() . "-" . Auth::id() . "." . $request->photo->extension();
+            $request->photo->move(public_path("images"), $photoName);
+        };
+
+
+
         $user = User::find(Auth::id());
         $extUser = Extended_User::find(Auth::id());
         $profile = Extended_User::
@@ -71,19 +88,19 @@ class ApiController extends Controller {
             ->with("User")
             ->get();
 
-        $user->name = $request->input("name") ? $request->input("name") : $profile[0]["user"]["name"];
-        $user->photo = $request->input("photo") ? $request->input("photo") : $profile[0]["user"]["photo"];
-        $extUser->age = $request->input("age") ? $request->input("age") : $profile[0]["age"];
-        $extUser->biography = $request->input("bio") ? $request->input("bio") : $profile[0]["biography"];
-        $extUser->gender = $request->input("gender") ? $request->input("gender") : $profile[0]["gender"];
-        $extUser->interested_in = $request->input("interested_in") ? $request->input("interested_in") : $profile[0]["interested_in"];
+        $user->name = $request->name ? $request->name : $profile[0]["user"]["name"];
+        $user->photo = $request->photo ? $photoName : $profile[0]["user"]["photo"];
+        $extUser->age = $request->age ? $request->age : $profile[0]["age"];
+        $extUser->biography = $request->bio ? $request->bio : $profile[0]["biography"];
+        $extUser->gender = $request->gender ? $request->gender : $profile[0]["gender"];
+        $extUser->interested_in = $request->interested_in ? $request->input("interested_in") : $profile[0]["interested_in"];
 
         $user->save();
         $extUser->save();
 
         return response()->json([
             "status" => "success",
-            "message" => "profile updated"
+            "message" => $photoName
         ]);
     }
 }
