@@ -24,8 +24,8 @@ const postAPI = async (api_url, api_data, api_token = null) => {
 // Main
 
 data = {
-    username: "fifo123",
-    password: "Fifo33",
+    username: "test",
+    password: "test",
     name: "Fadi",
     location: "Beirut",
     gender: "Male",
