@@ -2,6 +2,7 @@ const logOut = document.getElementById("logout-button");
 const token = window.localStorage.getItem("token");
 const feedDiv = document.querySelector(".feed");
 const baseURL = "http://127.0.0.1:8000/api";
+const data = {};
 
 registerURL = baseURL + "/feed";
 
@@ -31,7 +32,6 @@ logOut.addEventListener("click", () => {
     window.location.replace("./login.html");
 });
 
-data = {};
 postAPI(registerURL, data, token)
 .then(response => {
     const data = response.data.message;
