@@ -1,5 +1,11 @@
 const registerButton = document.getElementById("register-button");
 const successMessage = document.getElementById("success-message");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const myName = document.getElementById("name");
+const gender = document.getElementById("gender");
+const interested = document.getElementById("interested");
+const myLocation = document.getElementById("location");
 const baseURL = "http://127.0.0.1:8000/api";
 
 registerURL = baseURL + "/register";
@@ -24,15 +30,17 @@ const postAPI = async (api_url, api_data, api_token = null) => {
 
 // Main
 
-data = {
-    username: "test",
-    password: "test",
-    name: "Fadi",
-    location: "Beirut",
-    gender: "Male",
-    interested_in: "Female"
-};
+registerButton.addEventListener("click", (event) => {
+    event.preventDefault();
 
-registerButton.addEventListener("click", () => {
+    data = {
+        username: username.value,
+        password: password.value,
+        name: myName.value,
+        location: myLocation.value,
+        gender: gender.value,
+        interested_in: interested.value
+    };
+
     postAPI(registerURL, data);
 });
