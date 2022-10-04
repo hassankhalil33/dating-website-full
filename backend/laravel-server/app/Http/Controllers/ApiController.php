@@ -114,13 +114,13 @@ class ApiController extends Controller {
     }
 
     public function favorites() {   
-        $favorites = Extended_User::
+        $followings = Extended_User::
             where("user_id", Auth::id())
             ->with("User")
-            ->with("Favorite")
+            ->with("Following")
             ->get();
 
-        foreach ($feed as $f) {
+        foreach ($followings as $f) {
             if($f["user"]["photo"]) {
                 $f["user"]["photo"] = self::imageHandler($f["user"]["photo"]);
             }
@@ -128,7 +128,7 @@ class ApiController extends Controller {
 
         return response()->json([
             "status" => "success",
-            "message" => $favorites
+            "message" => $followings
         ]);
     }
 }
