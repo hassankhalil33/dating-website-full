@@ -58,14 +58,16 @@ class ApiController extends Controller {
             ->with("User")
             ->get();
 
-        $fileName = "images/" . $profile[0]["user"]["photo"];
+        if($profile[0]["user"]["photo"]) {
+            $filePath = public_path("images\\" . $profile[0]["user"]["photo"]);
+            $photo = base64_encode(file_get_contents($filePath));
+        }
 
-        $photo = File::get(public_path($fileName));
-        // $profile[0]["user"]["photo"] = $photo;
+        $profile[0]["user"]["photo"] = "data:image/png;base64," . $photo;
 
         return response()->json([
             "status" => "success",
-            "message" => $photo
+            "message" => $profile
         ]);
     }
 
