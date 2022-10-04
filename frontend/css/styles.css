@@ -40,6 +40,13 @@ h2 {
     border: 1px solid #a9a9a9;
 }
 
+.login > p {
+    align-self: center;
+    color: #95E1D3;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
 .login > button {
     background-color:#f38181;
     border-radius:10px;

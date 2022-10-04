@@ -1,4 +1,5 @@
 const registerButton = document.getElementById("register-button");
+const successMessage = document.getElementById("success-message");
 const baseURL = "http://127.0.0.1:8000/api";
 
 registerURL = baseURL + "/register";
@@ -15,7 +16,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
                 }
             }
         ) .then(function (response) {
-            console.log(response.data)});
+            successMessage.textContent = response.data.message});
     } catch(error) {
         console.log(error);
     }
