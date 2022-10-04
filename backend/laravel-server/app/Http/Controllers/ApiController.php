@@ -32,10 +32,14 @@ class ApiController extends Controller {
     }
 
     public function feed() {
+        $interestedIn = Extended_User::
+            where("user_id", Auth::id())
+            ->get("interested_in");
+
         $feed = Extended_User::
             where([
-                ['user_id', '=', Auth::id()],
-                ['gender', '=', 'interested_in']
+                ['user_id', '!=', Auth::id()],
+                ['gender', '=', $interestedIn[0]["interested_in"]]
             ])
             ->with("User")
             ->get();
