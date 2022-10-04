@@ -42,12 +42,14 @@ postAPI(registerURL, data, token)
         output += ` 
         <div>
             <div>
-                <img src="assets/images/default_pic.png" alt="profile_pic">
+                <img src="
+                ${element.user.photo ? element.user.photo : "assets/images/default_pic.png"}
+                " alt="profile_pic">
             </div>
             <div>
                 <h4>${element.user.name}</h4>
-                <h3>25</h3>
-                <p>Location, Country</p>
+                <h3>${element.age}</h3>
+                <p>${element.location}</p>
                 <button type="submit"><img class="icon" src="assets/images/block.png"></button>
                 <button type="submit"><img class="icon" src="assets/images/like.png"></button>
                 <button type="submit"><img class="icon" src="assets/images/chat.png"></button>
