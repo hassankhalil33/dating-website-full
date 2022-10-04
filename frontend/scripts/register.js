@@ -3,7 +3,8 @@ const successMessage = document.getElementById("success-message");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const myName = document.getElementById("name");
-const gender = document.getElementById("gender");
+const myAge = document.getElementById("age");
+const myGender = document.getElementById("gender");
 const interested = document.getElementById("interested");
 const myLocation = document.getElementById("location");
 const baseURL = "http://127.0.0.1:8000/api";
@@ -34,7 +35,8 @@ registerButton.addEventListener("click", (event) => {
         password: password.value,
         name: myName.value,
         location: myLocation.value,
-        gender: gender.value,
+        age: myAge.value,
+        gender: myGender.value,
         interested_in: interested.value
     };
 

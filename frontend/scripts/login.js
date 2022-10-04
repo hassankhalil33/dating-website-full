@@ -17,6 +17,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
             window.localStorage.setItem("token", response.data.access_token);
             window.location.replace("./feed.html")});
     } catch(error) {
+        // console.log(error);
         feedMessage.textContent = error.response.data.error;
     }
 }

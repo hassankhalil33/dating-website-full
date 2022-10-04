@@ -19,7 +19,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
         ) .then(function (response) {
             return response});
     } catch(error) {
-        console.log(error)
+        // console.log(error)
         window.location.replace("./login.html");
     }
 }
