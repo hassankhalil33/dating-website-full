@@ -1,28 +1,12 @@
-//FACED ERRORS WITH IMPORTS FROM OTHER FILES
-const dating_website = {};
+const registerButton = document.getElementById("register-button");
+const baseURL = "http://127.0.0.1:8000/api";
 
-dating_website.Console = (title, values, oneValue = true) => {
-    console.log('---' + title + '---');
-    if(oneValue){
-        console.log(values);
-    }else{
-        for(let i =0; i< values.length; i++){
-            console.log(values[i]);
-        }
-    }
-    console.log('--/' + title + '---');
-}
+registerURL = baseURL + "/register";
 
-dating_website.getAPI = async (api_url) => {
-    try{
-        return await axios(api_url);
-    }catch(error){
-        dating_website.Console("Error from GET API", error);
-    }
-}
+// Functions
 
-dating_website.postAPI = async (api_url, api_data, api_token = null) => {
-    try{
+const postAPI = async (api_url, api_data, api_token = null) => {
+    try {
         return await axios.post(
             api_url,
             api_data,
@@ -30,16 +14,14 @@ dating_website.postAPI = async (api_url, api_data, api_token = null) => {
                     'Authorization' : "token " + api_token
                 }
             }
-        );
-    }catch(error){
-        dating_website.Console("Error from POST API", error);
+        ) .then(function (response) {
+            console.log(response.data)});
+    } catch(error) {
+        console.log(error);
     }
 }
 
-const registerButton = document.getElementById("register-button");
-const baseURL = "http://127.0.0.1:8000/api";
-
-registerURL = baseURL + "/register";
+// Main
 
 data = {
     username: "fifo123",
@@ -51,5 +33,5 @@ data = {
 };
 
 registerButton.addEventListener("click", () => {
-    dating_website.postAPI(registerURL, data);
+    postAPI(registerURL, data);
 });

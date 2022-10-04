@@ -24,6 +24,11 @@ class ApiController extends Controller {
         $extendedUser->biography = "";
         $extendedUser->interested_in = $request->input("interested_in");
         $newUser->extended_user()->save($extendedUser);
+
+        return response()->json([
+            "status" => "success",
+            "message" => "registered successfully"
+        ]);
     }
 
     public function feed() {
