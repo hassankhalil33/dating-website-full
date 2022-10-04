@@ -64,19 +64,22 @@ class ApiController extends Controller {
     }
 
     public function profile_edit(Request $request) {
+        $user = User::find(Auth::id());
+        $extUser = Extended_User::find(Auth::id());
         $profile = Extended_User::
             where("user_id", Auth::id())
             ->with("User")
             ->get();
 
-        $newName = $request->input("name") ? $request->input("name") : $profile[0]["user"]["name"];
-        $newPhoto = $request->input("photo") ? $request->input("photo") : $profile[0]["user"]["photo"];
-        $newAge = $request->input("age") ? $request->input("age") : $profile[0]["age"];
-        $newBio = $request->input("bio") ? $request->input("bio") : $profile[0]["biography"];
-        $newGender = $request->input("gender") ? $request->input("gender") : $profile[0]["gender"];
-        $newInterest = $request->input("interested_in") ? $request->input("interested_in") : $profile[0]["interested_in"];
+        $user->name = $request->input("name") ? $request->input("name") : $profile[0]["user"]["name"];
+        $user->photo = $request->input("photo") ? $request->input("photo") : $profile[0]["user"]["photo"];
+        $extUser->age = $request->input("age") ? $request->input("age") : $profile[0]["age"];
+        $extUser->biography = $request->input("bio") ? $request->input("bio") : $profile[0]["biography"];
+        $extUser->gender = $request->input("gender") ? $request->input("gender") : $profile[0]["gender"];
+        $extUser->interested_in = $request->input("interested_in") ? $request->input("interested_in") : $profile[0]["interested_in"];
 
-        
+        $user->save();
+        $extUser->save();
 
         return response()->json([
             "status" => "success",
