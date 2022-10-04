@@ -46,6 +46,12 @@ class ApiController extends Controller {
             ->with("User")
             ->get();
 
+        foreach ($feed as $f) {
+            if($f["user"]["photo"]) {
+                $f["user"]["photo"] = self::imageHandler($f["user"]["photo"]);
+            }
+        }
+        
         return response()->json([
             "status" => "success",
             "message" => $feed
@@ -67,9 +73,7 @@ class ApiController extends Controller {
         if($profile[0]["user"]["photo"]) {
             $profile[0]["user"]["photo"] = self::imageHandler($profile[0]["user"]["photo"]);
         }
-
         
-
         return response()->json([
             "status" => "success",
             "message" => $profile

@@ -71,6 +71,11 @@ const viewProfile = (profileURL, data, token) => {
 
 viewProfile(profileURL, data, token);
 
+logOut.addEventListener("click", () => {
+    window.localStorage.removeItem("token");
+    window.location.replace("./login.html");
+});
+
 setTimeout(() => {  
     const editProfileButton = document.getElementById("edit-profile");
 
@@ -78,7 +83,7 @@ setTimeout(() => {
         e.preventDefault();
         editProfilePopup.style.display = "flex";
     });
-}, 2000);
+}, 1500);
 
 closeEditProfile.addEventListener("click", (e) => {
     e.preventDefault();
@@ -111,5 +116,5 @@ updateButton.addEventListener("click", (e) => {
             e.preventDefault();
             editProfilePopup.style.display = "flex";
         });
-    }, 2000);
+    }, 1500);
 });
