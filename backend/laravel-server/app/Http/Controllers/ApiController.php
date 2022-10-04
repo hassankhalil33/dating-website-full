@@ -50,4 +50,16 @@ class ApiController extends Controller {
             "message" => $feed
         ]);
     }
+
+    public function profile() {
+        $profile = Extended_User::
+            where("user_id", Auth::id())
+            ->with("User")
+            ->get();
+
+        return response()->json([
+            "status" => "success",
+            "message" => $profile
+        ]);
+    }
 }
