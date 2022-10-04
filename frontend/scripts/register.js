@@ -16,11 +16,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
     try {
         return await axios.post(
             api_url,
-            api_data,
-            { headers:{
-                    'Authorization' : "token " + api_token
-                }
-            }
+            api_data
         ) .then(function (response) {
             successMessage.textContent = response.data.message});
     } catch(error) {

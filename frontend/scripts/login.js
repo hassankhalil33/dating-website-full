@@ -12,11 +12,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
     try {
         return await axios.post(
             api_url,
-            api_data,
-            { headers:{
-                    'Authorization' : "token " + api_token
-                }
-            }
+            api_data
         ) .then(function (response) {
             window.localStorage.setItem("token", response.data.access_token);
             window.location.replace("./feed.html")});
