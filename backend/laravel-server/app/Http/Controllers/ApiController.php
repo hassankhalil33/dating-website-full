@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use File;
 
 class ApiController extends Controller {
+
+    private function imageHandler($path) {
+        $filePath = public_path("images\\" . $path);
+        $photo = base64_encode(file_get_contents($filePath));
+        return "data:image/png;base64," . $photo;
+    }
     
     public function register(Request $request) {
         $newUser = new User;
@@ -58,12 +64,6 @@ class ApiController extends Controller {
         ]);
     }
 
-    private function imageHandler($path) {
-        $filePath = public_path("images\\" . $path);
-        $photo = base64_encode(file_get_contents($filePath));
-        return "data:image/png;base64," . $photo;
-    }
-
     public function profile() {
         $profile = Extended_User::
             where("user_id", Auth::id())
@@ -90,8 +90,6 @@ class ApiController extends Controller {
             $request->photo->move(public_path("images"), $photoName);
         };
 
-
-
         $user = User::find(Auth::id());
         $extUser = Extended_User::find(Auth::id());
         $profile = Extended_User::
@@ -112,6 +110,25 @@ class ApiController extends Controller {
         return response()->json([
             "status" => "success",
             "message" => $photoName
+        ]);
+    }
+
+    public function favorites() {   
+        $favorites = Extended_User::
+            where("user_id", Auth::id())
+            ->with("User")
+            ->with("Favorite")
+            ->get();
+
+        foreach ($feed as $f) {
+            if($f["user"]["photo"]) {
+                $f["user"]["photo"] = self::imageHandler($f["user"]["photo"]);
+            }
+        }
+
+        return response()->json([
+            "status" => "success",
+            "message" => $favorites
         ]);
     }
 }
