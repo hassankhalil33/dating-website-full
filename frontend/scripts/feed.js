@@ -4,7 +4,7 @@ const feedDiv = document.querySelector(".feed");
 const baseURL = "http://127.0.0.1:8000/api";
 const data = {};
 
-registerURL = baseURL + "/feed";
+feedURL = baseURL + "/feed";
 
 // Functions
 
@@ -32,7 +32,7 @@ logOut.addEventListener("click", () => {
     window.location.replace("./login.html");
 });
 
-postAPI(registerURL, data, token)
+postAPI(feedURL, data, token)
 .then(response => {
     const data = response.data.message;
     let output = "";
