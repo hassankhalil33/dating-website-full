@@ -62,4 +62,25 @@ class ApiController extends Controller {
             "message" => $profile
         ]);
     }
+
+    public function profile_edit(Request $request) {
+        $profile = Extended_User::
+            where("user_id", Auth::id())
+            ->with("User")
+            ->get();
+
+        $newName = $request->input("name") ? $request->input("name") : $profile[0]["user"]["name"];
+        $newPhoto = $request->input("photo") ? $request->input("photo") : $profile[0]["user"]["photo"];
+        $newAge = $request->input("age") ? $request->input("age") : $profile[0]["age"];
+        $newBio = $request->input("bio") ? $request->input("bio") : $profile[0]["biography"];
+        $newGender = $request->input("gender") ? $request->input("gender") : $profile[0]["gender"];
+        $newInterest = $request->input("interested_in") ? $request->input("interested_in") : $profile[0]["interested_in"];
+
+        
+
+        return response()->json([
+            "status" => "success",
+            "message" => "profile updated"
+        ]);
+    }
 }
