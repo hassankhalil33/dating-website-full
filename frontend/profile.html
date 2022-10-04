@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pick A Date</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <nav class="nav-bar">
+            <h4>Pick A Date</h4>
+            <div>
+                <a href="feed.html">Home</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="profile.html">Profile</a>
+            </div>
+            <button id="logout-button" type="submit">Log Out</button>
+        </nav>
+
+        <section class="profile">
+            <!-- <div>
+                <div>
+                    <img src="assets/images/default_pic.png" alt="profile_pic">
+                </div>
+                <div>
+                    <h4>Full Name</h4>
+                    <p>25</p>
+                    <h3>Location, Country</h3>
+                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+                    <button id="edit-profile" type="submit">Edit Profile</button>
+                </div>
+            </div> -->
+        </section>
+
+        <section class="popup">
+            <form class="popup-content" method="POST" enctype="multipart/form-data">
+                <button id="close-edit">X</button>
+                <img src="assets/images/default_pic.png" alt="profile_pic">
+                <input id="new-photo" name="photo" type="file">
+                <input id="new-name" name="name" type="text" placeholder="Name">
+                <input id="new-age" name="age" type="text" placeholder="Age">
+                <textarea id="new-bio" name="bio" cols="30" rows="5" placeholder="Bio"></textarea>
+                <select id="new-gender" name="gender">
+                    <option>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <select id="new-interest" name="interest">
+                    <option>Interested In</option>
+                    <option value="male">Males</option>
+                    <option value="female">Females</option>
+                </select>
+                <button id="update-profile" type="submit">Update</button>
+            </form>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="scripts/profile.js"></script>
+    </body>
+</html>
