@@ -16,7 +16,7 @@ const postAPI = async (api_url, api_data, api_token = null) => {
             }
 
         ) .then(function (response) {
-            console.log(response)});
+            return response});
     } catch(error) {
         console.log(error);
     }
@@ -24,6 +24,6 @@ const postAPI = async (api_url, api_data, api_token = null) => {
 
 // Main
 
-
 data = {};
-postAPI(registerURL, data, token);
+postAPI(registerURL, data, token)
+.then(response => console.log(response.data.message));

@@ -10,7 +10,7 @@ use App\Http\Controllers\AuthController;
 //     Route::get("/feed", [ApiController::class, "feed"])->name("feed");
 // });
 
-Route::get("/feed", [ApiController::class, "feed"])->name("feed");
+Route::post("/feed", [ApiController::class, "feed"])->name("feed");
 
 Route::post("/register", [ApiController::class, "register"])->name("register");
 Route::post("/login", [AuthController::class, "login"])->name("login");
