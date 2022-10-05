@@ -44,8 +44,6 @@ registerButton.addEventListener("click", (event) => {
             interested_in: interested.value
         };
     
-        console.log(data);
-    
         postAPI(registerURL, data);
     }
 

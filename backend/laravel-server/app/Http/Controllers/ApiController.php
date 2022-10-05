@@ -27,6 +27,8 @@ class ApiController extends Controller {
         $newUser->save();
 
         $extendedUser->location = $request->input("location");
+        $extendedUser->latitude = $request->input("latitude");
+        $extendedUser->longitude = $request->input("longitude");
         $extendedUser->gender = $request->input("gender");
         $extendedUser->biography = "";
         $extendedUser->age = $request->input("age");
