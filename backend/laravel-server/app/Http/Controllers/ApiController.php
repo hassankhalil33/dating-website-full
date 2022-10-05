@@ -41,10 +41,36 @@ class ApiController extends Controller {
         ]);
     }
 
+    // Copied from StackOverflow
+    public function vincentyGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371) {
+            // convert from degrees to radian
+            $latFrom = deg2rad($latitudeFrom);
+            $lonFrom = deg2rad($longitudeFrom);
+            $latTo = deg2rad($latitudeTo);
+            $lonTo = deg2rad($longitudeTo);
+          
+            $lonDelta = $lonTo - $lonFrom;
+            $a = pow(cos($latTo) * sin($lonDelta), 2) +
+              pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+            $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+          
+            $angle = atan2(sqrt($a), $b);
+            return $angle * $earthRadius;
+        }
+
     public function feed() {
         $interestedIn = Extended_User::
             where("user_id", Auth::id())
             ->get("interested_in");
+
+        $userLat = Extended_User::
+            where("user_id", Auth::id())
+            ->get("latitude");
+
+        $userLon = Extended_User::
+            where("user_id", Auth::id())
+            ->get("longitude");
 
         $feed = Extended_User::
             where([
@@ -58,11 +84,17 @@ class ApiController extends Controller {
             if($f["user"]["photo"]) {
                 $f["user"]["photo"] = self::imageHandler($f["user"]["photo"]);
             }
+
+            $f["distance"] = self::vincentyGreatCircleDistance(
+                $userLat[0]["latitude"], $userLon[0]["longitude"], $f["latitude"], $f["longitude"]);
         }
+
+        $array = json_decode($feed, true);
+        array_multisort(array_column($array, 'distance'), SORT_ASC, $array);
         
         return response()->json([
             "status" => "success",
-            "message" => $feed
+            "message" => $array
         ]);
     }
 
