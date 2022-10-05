@@ -8,6 +8,7 @@ const myGender = document.getElementById("gender");
 const interested = document.getElementById("interested");
 const myLocation = document.getElementById("location");
 const baseURL = "http://127.0.0.1:8000/api";
+let data = {};
 
 registerURL = baseURL + "/register";
 
@@ -30,15 +31,28 @@ const postAPI = async (api_url, api_data, api_token = null) => {
 registerButton.addEventListener("click", (event) => {
     event.preventDefault();
 
-    data = {
-        username: username.value,
-        password: password.value,
-        name: myName.value,
-        location: myLocation.value,
-        age: myAge.value,
-        gender: myGender.value,
-        interested_in: interested.value
-    };
+    const success = async (position) => {
+        data = {
+            username: username.value,
+            password: password.value,
+            name: myName.value,
+            location: myLocation.value,
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            age: myAge.value,
+            gender: myGender.value,
+            interested_in: interested.value
+        };
+    
+        console.log(data);
+    
+        postAPI(registerURL, data);
+    }
 
-    postAPI(registerURL, data);
+    const failed = () => {
+        successMessage.textContent = "no location no account!";
+        throw new Error("no location no account!");
+    }
+
+    navigator.geolocation.getCurrentPosition(success, failed);
 });

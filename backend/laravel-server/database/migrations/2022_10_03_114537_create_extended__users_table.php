@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string("gender", 45);
             $table->string("interested_in", 45);
             $table->string("location", 95);
+            $table->string("latitude", 45);
+            $table->string("longitude", 45);
             $table->string("biography");
             $table->timestamps();
         });
