@@ -8,12 +8,16 @@
 
 <h1>Homepage Continued</h1>
 
-<img src="https://i.ibb.co/CBDnsxt/Screenshot-16.png">
+<img src="https://i.ibb.co/c3NhS2B/Screenshot-2.png">
 
 <h1>Favorites Page</h1>
 
-<img src="https://i.ibb.co/ZxyhHcH/Screenshot-17.png">
+<img src="https://i.ibb.co/FzFqcfQ/Screenshot-3.png">
 
 <h1>Profile Page</h1>
 
 <img src="https://i.ibb.co/YPSwrMF/Screenshot-19.png">
+
+<h1>Edit Profile</h1>
+
+<img src="https://i.ibb.co/Xp72p62/Screenshot-4.png">
