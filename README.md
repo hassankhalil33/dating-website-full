@@ -13,6 +13,7 @@
 <h1>Homepage Continued</h1>
 
 <img src="https://i.ibb.co/c3NhS2B/Screenshot-2.png">
+<h3>Sorted By Closest To You</h3>
 
 <h1>Favorites Page</h1>
 
