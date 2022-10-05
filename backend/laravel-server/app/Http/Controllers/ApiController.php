@@ -114,15 +114,13 @@ class ApiController extends Controller {
     }
 
     public function favorites() {   
-        $followings = Extended_User::
-            where("user_id", Auth::id())
-            ->with("User")
-            ->with("Following")
-            ->get();
+        $followings = User::whereHas('followers', function ($query) {
+            return $query->where('follower_id', '=', Auth::id());
+        })->with("Extended_User")->get();
 
         foreach ($followings as $f) {
-            if($f["user"]["photo"]) {
-                $f["user"]["photo"] = self::imageHandler($f["user"]["photo"]);
+            if($f["photo"]) {
+                $f["photo"] = self::imageHandler($f["photo"]);
             }
         }
 
