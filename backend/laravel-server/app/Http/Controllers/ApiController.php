@@ -136,14 +136,14 @@ class ApiController extends Controller {
         $extUser->age = $request->age ? $request->age : $profile[0]["age"];
         $extUser->biography = $request->bio ? $request->bio : $profile[0]["biography"];
         $extUser->gender = $request->gender ? $request->gender : $profile[0]["gender"];
-        $extUser->interested_in = $request->interested_in ? $request->input("interested_in") : $profile[0]["interested_in"];
+        $extUser->interested_in = $request->interest ? $request->interest : $profile[0]["interested_in"];
 
         $user->save();
         $extUser->save();
 
         return response()->json([
             "status" => "success",
-            "message" => $photoName
+            "message" => "ok"
         ]);
     }
 
