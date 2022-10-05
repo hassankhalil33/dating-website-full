@@ -43,7 +43,6 @@ const viewProfile = (profileURL, data, token) => {
     .then(response => {
         const data = response.data.message;
         let output = "";
-        console.log(data);
 
         data.forEach(element => {
             output += ` 
@@ -94,16 +93,6 @@ updateButton.addEventListener("click", (e) => {
     e.preventDefault();
     const formData = new FormData(form);
 
-    // updateData = {
-    //     name: newName.value,
-    //     age: newAge.value,
-    //     bio: newBio.value,
-    //     gender: newGender.value,
-    //     interested_in: newInterest.value,
-    //     photo: newPhoto.value
-    // }
-
-    console.log([...formData]);
     postAPI(updateProfileURL, formData, token);
 
     editProfilePopup.style.display = "none";
